@@ -42,22 +42,12 @@ void setup() {
     sensorSetup();                      // Setup DHT22 Sensor
     delay(2000);
 
-    homeSpan.begin(Category::Bridges, "HomeSpan Bridge");
-
+    homeSpan.begin(Category::Sensors, "DHT11 Sensor");
     new SpanAccessory();
     new Service::AccessoryInformation();
     new Characteristic::Identify();
-
-    new SpanAccessory();
-    new Service::AccessoryInformation();
-    new Characteristic::Identify();
-    new Characteristic::Name("Temp Sensor");
+    new Characteristic::Name("Temp and Humidity Sensor");
     new DEV_TempSensor();               // Create a Temperature Sensor
-
-    new SpanAccessory();
-    new Service::AccessoryInformation();
-    new Characteristic::Identify();
-    new Characteristic::Name("Humidity");
     new DEV_HumiditySensor();           // Create a Humidity Sensor
 }
 
